@@ -1,0 +1,2 @@
+class FormAnswersController < ApplicationController
+end
