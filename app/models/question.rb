@@ -1,4 +1,4 @@
 class Question < ApplicationRecord
 
-    # fazer as funções
+    # fazer as funções 
 end
