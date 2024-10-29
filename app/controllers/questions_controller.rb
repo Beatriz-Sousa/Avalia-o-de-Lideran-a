@@ -7,4 +7,9 @@ class QuestionsController < BaseCrudController
   def create_params
     params.permit([:title, :option_1, :option_2, :option_3, :option_4])
   end
+
+  def show_questions
+    questions = crud_model.all
+    render json: question
+  end
 end
