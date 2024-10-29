@@ -4,4 +4,7 @@ class FormAnswersController < ApplicationController
         FormAnswer
     end
 
+    def show_formanswer
+        
+    end
 end
