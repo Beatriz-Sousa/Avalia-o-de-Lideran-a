@@ -4,12 +4,8 @@ class UsersController < BaseCrudController
     User
   end
 
+  # permitir nome e released_at
   def create_params
     params.permit([:name, :email])
-  end
-
-  def show
-    user = User.find(params[:id])
-    render json: user, status: :ok
   end
 end

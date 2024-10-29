@@ -1,4 +1,5 @@
 class QuestionsController < BaseCrudController
+  
   def crud_model
     Question
   end
