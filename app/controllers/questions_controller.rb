@@ -8,17 +8,8 @@ class QuestionsController < BaseCrudController
     params.permit([:title, :option_1, :option_2, :option_3, :option_4])
   end
 
-  # get
-  def show_questions
-    questions = Question.find(params[:id])
-    render json: question, status: :ok
+  def update_params
+    params.permit([:title, :option_1, :option_2, :option_3, :option_4])
   end
 
-  def update
-  end
-
-  # delete
-  def destroy
-    Question
-  end
 end
