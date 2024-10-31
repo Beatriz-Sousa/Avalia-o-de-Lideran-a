@@ -15,15 +15,19 @@ class FormAnswer < ApplicationRecord
       end
       value
     end
-end
 
-  def show_result
-    total = calculate_result
-    case total
-    when 18..36
-      "Liderança frágil e pouco trabalhada."
-    when 37..54
-      "Liderança em desenvolvimento."
-    else 55..72
-      "Líder de alta performance."
-  end
+    def result_final
+      result = calculate_result
+      case result
+      when 18..36
+        result = "Lider insuficiente"
+      when 37..54
+        result = "Desenvolvendo"
+      when 55..72
+        result = "Desenvolvido"
+        else
+          print("Faça novamente")
+      end
+      result
+    end
+end
