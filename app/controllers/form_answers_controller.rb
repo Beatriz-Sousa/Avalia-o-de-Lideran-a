@@ -1,7 +1,5 @@
 class FormAnswersController < BaseCrudController
-
-  def create_model
+  def crud_model
     FormAnswer
   end
-
 end

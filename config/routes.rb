@@ -11,6 +11,12 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :question_users
+
+  resources :form_answers
+
+  resources :form_questions
+
   #get '/user', to: 'users#show'
 
 
