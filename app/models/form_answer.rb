@@ -20,14 +20,15 @@ class FormAnswer < ApplicationRecord
       result = calculate_result
       case result
       when 18..36
-        result = "Lider insuficiente"
+        self.result = "Liderança frágil e pouco trabalhada."
       when 37..54
-        result = "Desenvolvendo"
+        self.result = "Liderança em desenvolvimento"
       when 55..72
-        result = "Desenvolvido"
+        self.result = "Líder de alta performnace"
         else
           print("Faça novamente")
       end
-      result
+      self.save!
+      self.result
     end
 end
