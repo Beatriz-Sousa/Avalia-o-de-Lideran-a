@@ -1,6 +1,6 @@
 class FormQuestionsController < BaseCrudController
-  
-  def create_model
-    FormQuestion
-  end
+
+    def crud_model
+      FormQuestion
+    end
 end

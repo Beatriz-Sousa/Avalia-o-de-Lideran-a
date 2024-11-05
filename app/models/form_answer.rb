@@ -1,34 +1,36 @@
 class FormAnswer < ApplicationRecord
-  has_many :question_user
+  has_many :question_users
 
   def calculate_result
-    value = 0
-    question_user.each do |question_user|
+    total_value = 0
+
+    question_users.each do |question_user|
       case question_user.answer
-      when 'option_1' 
-        value += 1
-      when 'option_2'
-        value += 2
-      when 'option_3'
-        value += 3
-      else += 4
+      when 1
+        total_value += 1
+      when 2
+        total_value += 2
+      when 3
+        total_value += 3
+      else
+        total_value += 4
       end
-      value
     end
+    total_value
+  end
 
     def result_final
       result = calculate_result
       case result
       when 18..36
-        self.result = "Liderança frágil e pouco trabalhada."
+        result = "Liderança frágil e pouco trabalhada."
       when 37..54
-        self.result = "Liderança em desenvolvimento"
+        result = "Liderança em desenvolvimento"
       when 55..72
-        self.result = "Líder de alta performnace"
+        result = "Líder de alta performance"
         else
-          print("Faça novamente")
+          puts "Faça novamente"
       end
-      self.save!
-      self.result
+      result
     end
 end
