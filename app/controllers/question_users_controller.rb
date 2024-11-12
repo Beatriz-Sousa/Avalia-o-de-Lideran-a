@@ -9,6 +9,7 @@ class QuestionUsersController < BaseCrudController
       end
     end
 
+
     def crud_model
       QuestionUser
     end
@@ -16,9 +17,5 @@ class QuestionUsersController < BaseCrudController
     # permitir nome e released_at
     def create_params
       params.permit([:user_id, :form_id, :question_id, :answer, :form_answer_id])
-    end
-    
-    def update_params
-
     end
   end
