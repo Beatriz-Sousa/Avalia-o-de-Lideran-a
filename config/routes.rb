@@ -11,14 +11,20 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :question_users
+
   resources :form_answers
 
   resources :form_questions
 
-  resources :forms
-
   #get '/user', to: 'users#show'
+  get '/form_answers/:id/show', controller: :form_answers, action: :show
 
+  post '/form_answers/:id/answer', controller: :form_answer, action: :answer
+
+  post '/forms/:id/answer', controller: :forms, action: :answer
+
+  
 
   #post 'answer/:form_id', controller: :forms, action: :answer
 end

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_22_225547) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_05_221310) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "form_answers", force: :cascade do |t|
     t.bigint "form_id", null: false
-    t.string "result"
+    t.integer "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["form_id"], name: "index_form_answers_on_form_id"
@@ -44,7 +44,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_22_225547) do
     t.integer "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "form_id", null: false
     t.index ["form_answer_id"], name: "index_question_users_on_form_answer_id"
+    t.index ["form_id"], name: "index_question_users_on_form_id"
     t.index ["question_id"], name: "index_question_users_on_question_id"
     t.index ["user_id"], name: "index_question_users_on_user_id"
   end
@@ -89,6 +91,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_22_225547) do
   add_foreign_key "form_questions", "forms"
   add_foreign_key "form_questions", "questions"
   add_foreign_key "question_users", "form_answers"
+  add_foreign_key "question_users", "forms"
   add_foreign_key "question_users", "questions"
   add_foreign_key "question_users", "users"
 end
