@@ -11,7 +11,7 @@ class FormAnswersController < ApplicationController
         @form_answer.update(result: @form_answer.result_final)
         redirect_to @form_answer, notice: 'Form answer was successfully created.'
       else
-        render :new
+        render json: :new
       end
     end
 end

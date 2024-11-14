@@ -8,7 +8,7 @@ class QuestionsController < BaseCrudController
     params.permit([:title, :option_1, :option_2, :option_3, :option_4])
   end
 
-  def update_params
+  def sent
     params.permit([:title, :option_1, :option_2, :option_3, :option_4])
   end
 
