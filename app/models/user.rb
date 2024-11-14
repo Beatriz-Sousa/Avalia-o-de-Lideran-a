@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  belongs_to :form_answer
   # has_many :question_users
 
   # # Include default devise modules. Others available are:

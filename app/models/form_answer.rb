@@ -2,6 +2,12 @@ class FormAnswer < ApplicationRecord
   belongs_to :form
   has_many :question_users
 
+  def user
+    if self.question_users.present?
+      self.question_users.last.user
+    end
+  end
+
   def calculate_result
     total_value = 0
 
