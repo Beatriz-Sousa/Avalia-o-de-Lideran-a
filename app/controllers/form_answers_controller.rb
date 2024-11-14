@@ -7,7 +7,7 @@ class FormAnswersController < ApplicationController
     def create
       @form_answer = FormAnswer.new(form_answer_params)
   
-      if @form_answer.save
+      if @form_answer.save #teste
         @form_answer.update(result: @form_answer.result_final)
         redirect_to @form_answer, notice: 'Form answer was successfully created.'
       else
