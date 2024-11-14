@@ -4,6 +4,7 @@ class UsersController < BaseCrudController
     User
   end
 
+  # permitir nome e released_at
   def create_params
     params.permit([:name, :email])
   end
