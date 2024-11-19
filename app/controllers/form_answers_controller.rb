@@ -22,6 +22,10 @@ class FormAnswersController < BaseCrudController
   def answer
     form_answer = FormAnswer.find_by(id: params[:id])
     
+    if form_answer.answered
+      return render json: { error: 'Você já respondeu a este formulário' }, status: :unprocessable_entity
+    end
+
     answers_data = params['answers']
     answers_data.each do |answer_data|
       # DEPOIS DE COLOCAR AUTENTICACAO, PASSAR O USUARIO AUTENTICADO NA CRIACAO DO QUESTION USER
@@ -30,7 +34,7 @@ class FormAnswersController < BaseCrudController
     end
 
     form_answer.calculate_result
-
+    return render json: { message: 'Respostas salvas!'}, status: :ok
   end
 
   def result
@@ -61,6 +65,7 @@ class FormAnswersController < BaseCrudController
 
     render json: results
    end
+
 
   def crud_model
     FormAnswer

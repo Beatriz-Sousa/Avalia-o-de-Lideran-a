@@ -2,6 +2,8 @@ class FormAnswer < ApplicationRecord
   belongs_to :form
   has_many :question_users
 
+  after_save :update_answered_status
+
   def user
     if self.question_users.present?
       self.question_users.last.user
@@ -32,15 +34,23 @@ class FormAnswer < ApplicationRecord
   def result_display
     case result
     when 18..36
-      result = "Lider insuficiente"
+      result = "Liderança frágil e pouco trabalhada."
     when 37..54
-      result = "Desenvolvendo"
+      result = "Liderança em desenvolvimento."
     when 55..72
-      result = "Desenvolvido"
+      result = "Líder de alta performance."
       else
-        print("Faça novamente")
+        print("Não atingiu pontos necessários.")
     end
     result
+  end
+
+  def update_answered_status
+    if question_users.any?
+      update_column(:answered, true)
+    else
+      update_column(:answered, false)
+    end
   end
 
 end

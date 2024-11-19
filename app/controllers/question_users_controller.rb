@@ -18,4 +18,8 @@ class QuestionUsersController < BaseCrudController
     def create_params
       params.permit([:user_id, :form_id, :question_id, :answer, :form_answer_id])
     end
+
+    def finished
+      
+    end
   end
