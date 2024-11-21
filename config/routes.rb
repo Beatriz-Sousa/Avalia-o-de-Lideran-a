@@ -9,7 +9,12 @@ Rails.application.routes.draw do
 
   resources :forms
 
-  resources :users
+  # /users/:id/form_answers
+  resources :users do
+    member do
+      get :form_answer
+    end
+  end
 
 <<<<<<<<< Temporary merge branch 1
   resources :question_users
@@ -19,14 +24,20 @@ Rails.application.routes.draw do
   #get '/user', to: 'users#show'
 >>>>>>>>> Temporary merge branch 2
 
-  resources :form_answers
+  resources :form_answers do
+    collection do
+      get :all_result
+    end
+    member do 
+      post :answer
+    end
+  end
 
   resources :form_questions
 
   #get '/user', to: 'users#show'
   get '/form_answers/:id/show', controller: :form_answers, action: :show
 
-  post '/form_answers/:id/answer', controller: :form_answer, action: :answer
 
   post '/forms/:id/answer', controller: :forms, action: :answer
 
