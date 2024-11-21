@@ -4,16 +4,12 @@ class UsersController < BaseCrudController
     User
   end
 
-  # def create
-  #   User
-  # end
-
-  def form_answer
+   def form_answers
     user_id = params[:id]
     user = User.find_by(id:user_id)
 
     if user.present?
-      render json: user.form_answer
+      render json: user.form_answers
     end
   end
 

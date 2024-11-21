@@ -13,6 +13,10 @@ class FormsController < BaseCrudController
     end
   end
   
+  def create_params
+    params.permit(:name, question_ids: [])
+  end
+
   def crud_model
     Form
   end

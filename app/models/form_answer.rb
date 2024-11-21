@@ -34,15 +34,15 @@ class FormAnswer < ApplicationRecord
   def result_display
     case result
     when 18..36
-      result = "Liderança frágil e pouco trabalhada."
+      text = "Liderança frágil e pouco trabalhada."
     when 37..54
-      result = "Liderança em desenvolvimento."
+      text = "Liderança em desenvolvimento."
     when 55..72
-      result = "Líder de alta performance."
-      else
-        print("Não atingiu pontos necessários.")
+      text = "Líder de alta performance."
+    else
+      text = "Não atingiu pontos necessários."
     end
-    result
+    text
   end
 
   def update_answered_status

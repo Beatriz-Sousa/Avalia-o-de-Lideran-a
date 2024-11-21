@@ -41,7 +41,7 @@ class FormAnswersController < BaseCrudController
     form_answer = FormAnswer.find_by(id: params[:id])
 
     if form_answer.present?
-      result = form_answer.result.display
+      result = form_answer.result_display
       render json: {result: result}, staus: :ok
     else
       render json: {error: "Respostas não foram enviadas ou processadas ainda."}, status: :unprocessable_entity

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # /users/:id/form_answers
   resources :users do
     member do
-      get :form_answer
+      get :form_answers
     end
   end
 
@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   #get '/user', to: 'users#show'
   get '/form_answers/:id/show', controller: :form_answers, action: :show
+
+  get '/form_answers/:id/result', controller: :form_answers, action: :result
 
 
   
