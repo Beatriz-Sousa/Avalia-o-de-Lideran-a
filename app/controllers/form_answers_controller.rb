@@ -38,15 +38,15 @@ class FormAnswersController < BaseCrudController
 
   end
 
-  #def result
-    #form_answer_id = params[:id]
-    #form_answer = FormAnswer.find_by(id: form_answer_id)
+  def result
+    form_answer_id = params[:id]
+    form_answer = FormAnswer.find_by(id: form_answer_id)
 
-    #if form_answer.present?
-     # render json: form_answer.result_display, status: :ok
-    #else
-    # end
-  #end
+    if form_answer.present?
+     render json: form_answer.result_display, status: :ok
+    else
+    end
+  end
 
   def crud_model
     FormAnswer
