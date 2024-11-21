@@ -1,5 +1,4 @@
-class FormAnswersController < ApplicationController
-end
+<<<<<<<<< Temporary merge branch 1
 class FormAnswersController < BaseCrudController
   def create
     last_form = Form.last
