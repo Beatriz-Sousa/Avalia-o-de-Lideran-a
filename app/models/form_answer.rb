@@ -1,5 +1,6 @@
 class FormAnswer < ApplicationRecord
   belongs_to :form
+  belongs_to :user
   has_many :question_users
 
   after_save :update_answered_status

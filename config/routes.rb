@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
-  #mount_devise_token_auth_for 'User', at: 'auth'
+  mount_devise_token_auth_for 'User', at: 'auth'
   
  
   resources :questions
@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   # /users/:id/form_answers
   resources :users do
+    collection do
+      get :all_result
+    end
     member do
       get :form_answers
     end

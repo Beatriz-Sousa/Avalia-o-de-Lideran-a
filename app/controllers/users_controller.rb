@@ -13,6 +13,26 @@ class UsersController < BaseCrudController
     end
   end
 
+  def all_result
+    users = User.includes(:form_answer, :form) 
+    results = []
+  
+    users.each do |user|
+      if user.form_answer.present? 
+        form_answer = user.form_answer
+  
+        results << {
+          name: user.name,
+          email: user.email,
+          result: form_answer.result,
+          form_version: form_answer.form.version
+        }
+      end
+    end
+  
+    render json: results
+  end
+  
 
   # permitir nome e released_at
   def create_params
