@@ -1,4 +1,5 @@
 class FormAnswersController < BaseCrudController
+  before_action :_admin_authorized, only: [:destroy, :show, :result, :all_result]
   def create
     last_form = Form.last
     new_crud_instance = crud_model.create(form_id: last_form.id)
@@ -29,7 +30,7 @@ class FormAnswersController < BaseCrudController
     answers_data = params['answers']
     answers_data.each do |answer_data|
       # DEPOIS DE COLOCAR AUTENTICACAO, PASSAR O USUARIO AUTENTICADO NA CRIACAO DO QUESTION USER
-      QuestionUser.create!(user_id: 1, question_id: answer_data[:question_id], answer: answer_data[:answer], 
+      QuestionUser.create!(user_id: current_user, question_id: answer_data[:question_id], answer: answer_data[:answer], 
       form_answer_id: form_answer.id, form_id: form_answer.form.id)
     end
 
@@ -65,6 +66,7 @@ class FormAnswersController < BaseCrudController
 
     render json: results
    end
+   
 
 
   def crud_model

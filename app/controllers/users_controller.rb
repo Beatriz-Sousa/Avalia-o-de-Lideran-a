@@ -1,5 +1,5 @@
 class UsersController < BaseCrudController
-
+  before_action :_admin_authorized, only: [:all_result, :update, :destroy, :form_answers]
   def crud_model
     User
   end

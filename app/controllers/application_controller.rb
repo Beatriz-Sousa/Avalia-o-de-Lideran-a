@@ -3,10 +3,10 @@ class ApplicationController < ActionController::API
   before_action :authenticate_user!, unless: :devise_controller?
   # before_action :_authenticate_token
 
-  # def _authenticate_token
-  #   auth_token = params['auth_token']
-  #   if auth_token != '12345678'
-  #     render json: {}, status:401
-  #   end
-  # end
+  #função para autorização de acesso tipo adminitrador
+  def _admin_authorized
+    if not current_user.administrator #se não for administrador retornar erro 401
+      render json: {}, status: 401
+    end
+  end
 end

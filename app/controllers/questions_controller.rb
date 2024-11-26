@@ -1,4 +1,5 @@
 class QuestionsController < BaseCrudController
+  before_action :_admin_authorized, only: [:create, :update, :destroy] #está dizendo que o create precisa ser admin.
   
   def crud_model
     Question

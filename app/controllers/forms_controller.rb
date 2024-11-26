@@ -1,4 +1,5 @@
 class FormsController < BaseCrudController
+  before_action :_admin_authorized, only: [:create, :destroy, :update]
   def create
     new_crud_instance = crud_model.create()
     

@@ -1,4 +1,5 @@
 class QuestionUsersController < BaseCrudController  
+  before_action :_admin_authorized, only: [:create, :update, :destroy, :show]
     def create
       new_crud_instance = crud_model.create(create_params)
       
@@ -17,9 +18,5 @@ class QuestionUsersController < BaseCrudController
     # permitir nome e released_at
     def create_params
       params.permit([:user_id, :form_id, :question_id, :answer, :form_answer_id])
-    end
-
-    def finished
-      
     end
   end
