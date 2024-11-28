@@ -12,7 +12,5 @@ class User < ApplicationRecord
   #   end
   #   value
   # end
-  
-
 
 end

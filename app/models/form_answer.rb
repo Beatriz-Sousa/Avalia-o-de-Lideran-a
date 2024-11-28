@@ -1,7 +1,6 @@
 class FormAnswer < ApplicationRecord
   belongs_to :form
-=========
->>>>>>>>> Temporary merge branch 2
+  belongs_to :user
   has_many :question_users
 
   after_save :update_answered_status
@@ -15,10 +14,6 @@ class FormAnswer < ApplicationRecord
   def calculate_result
     total_value = 0
 
-<<<<<<<<< Temporary merge branch 1
-    # # Itera sobre as respostas relacionadas (question_users)
-=========
->>>>>>>>> Temporary merge branch 2
     question_users.each do |question_user|
       case question_user.answer
       when 1
@@ -31,7 +26,6 @@ class FormAnswer < ApplicationRecord
         total_value += 4
       end
     end
-<<<<<<<<< Temporary merge branch 1
 
     self.update(result: total_value)
     total_value
@@ -40,15 +34,19 @@ class FormAnswer < ApplicationRecord
   def result_display
     case result
     when 18..36
-      result = "Liderança frágil e pouco trabalhada."
+      text = "Liderança frágil e pouco trabalhada."
+      description = "Sua liderança está em um estágio inicial. A forma como você gerencia sua equipe precisa de mais desenvolvimento e prática."
     when 37..54
-      result = "Liderança em desenvolvimento."
+      text = "Liderança em desenvolvimento."
+      description = "Você está no caminho certo! Sua liderança está em crescimento, mas há áreas que ainda precisam ser melhoradas."
     when 55..72
-      result = "Líder de alta performance."
-      else
-        print("Não atingiu pontos necessários.")
+      text = "Líder de alta performance."
+      description = "Parabéns! Você demonstrou habilidades excepcionais de liderança, com forte capacidade de influenciar e motivar sua equipe."
+    else
+      text = "Não atingiu pontos necessários."
+      description = "Parece que você ainda não atingiu os pontos mínimos para uma avaliação adequada. Tente novamente."
     end
-    result
+    { text: text, description: description }
   end
 
   def update_answered_status
@@ -60,24 +58,3 @@ class FormAnswer < ApplicationRecord
   end
 
 end
-
-=========
-    total_value
-  end
-
-    def result_final
-      result = calculate_result
-      case result
-      when 18..36
-        result = "Liderança frágil e pouco trabalhada."
-      when 37..54
-        result = "Liderança em desenvolvimento"
-      when 55..72
-        result = "Líder de alta performance"
-        else
-          puts "Faça novamente"
-      end
-      result
-    end
-end
->>>>>>>>> Temporary merge branch 2

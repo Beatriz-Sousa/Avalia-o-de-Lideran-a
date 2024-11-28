@@ -70,4 +70,6 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   config.hosts << "solid-space-doodle-pjrq4rwp65rg394jv-3000.app.github.dev"
+
+  config.hosts << "curly-space-cod-x5wq7wpv4gj4fpwqp-3000.app.github.dev"
 end

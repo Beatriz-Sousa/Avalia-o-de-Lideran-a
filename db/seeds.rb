@@ -248,8 +248,5 @@ Question.find_or_create_by(title: "Como você enfrenta desafios inesperados?",
   option_2: "Com estresse",
   option_3: "Com flexibilidade",
   option_4: "Com planejamento"
-<<<<<<<<< Temporary merge branch 1
 )
-=========
-)
->>>>>>>>> Temporary merge branch 2
+

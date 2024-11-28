@@ -2,8 +2,6 @@ class Form < ApplicationRecord
   has_many :form_questions
 
   before_create :set_version
-  # after_create :generate_questions
-
 
   def questions
     questions_ids = self.form_questions.pluck(:question_id)
